@@ -1,0 +1,66 @@
+<div class="bg-[#0d1117] text-white min-h-screen">
+
+    <!-- Header Section -->
+    <div class="bg-[#161b22] py-10 text-center sm:pt-28">
+      <h1 class="text-3xl sm:text-5xl font-bold mb-4 text-[#C541B4]">About Us</h1>
+      <p class="text-lg sm:text-xl text-gray-300">We are a passionate team of developers creating unforgettable gaming experiences.</p>
+    </div>
+  
+    <!-- Game Screenshots Section -->
+    <section class="py-16 px-4 sm:px-8">
+      <h2 class="text-2xl sm:text-3xl font-semibold text-center mb-8 text-[#C541B4]">Game Screenshots</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div *ngFor="let gameImage of gameImages" class="overflow-hidden rounded-lg shadow-lg transition-transform duration-500 transform hover:scale-105">
+          <img [src]="gameImage.src" [alt]="gameImage.alt" class="w-full h-72 object-cover rounded-lg">
+        </div>
+      </div>
+    </section>
+  
+    <!-- Our Team Section -->
+    <section class="py-16 px-4 sm:px-8">
+      <h2 class="text-2xl sm:text-3xl font-semibold text-center mb-8 text-[#C541B4]">Meet Our Team</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div *ngFor="let member of teamMembers" class="bg-[#1c2a3a] p-6 rounded-lg shadow-lg transform transition-all hover:scale-105">
+          <img [src]="member.imageUrl" alt="{{ member.name }}" class="w-24 h-24 rounded-full mx-auto mb-4 transition-transform duration-500 hover:scale-110">
+          <h3 class="text-xl font-bold text-center">{{ member.name }}</h3>
+          <p class="text-sm text-center text-gray-400">{{ member.role }}</p>
+          <p class="mt-4 text-gray-300">{{ member.bio }}</p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Core Values Section -->
+    <section class="bg-[#1e2e3e] py-16 px-4 sm:px-8">
+      <h2 class="text-2xl sm:text-3xl font-semibold text-center mb-8 text-white">Our Core Values</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div *ngFor="let value of coreValues" class="bg-[#132030] p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-bold text-[#C541B4]">{{ value.title }}</h3>
+          <p class="text-gray-300 mt-4">{{ value.description }}</p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Milestones Section -->
+    <section class="py-16 px-4 sm:px-8 bg-[#161b22]">
+      <h2 class="text-2xl sm:text-3xl font-semibold text-center mb-8 text-[#C541B4]">Achievements & Milestones</h2>
+      <div class="space-y-8">
+        <div *ngFor="let milestone of milestones" class="bg-[#1c2a3a] p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-bold text-[#C541B4]">{{ milestone.year }} - {{ milestone.title }}</h3>
+          <p class="text-gray-300 mt-4">{{ milestone.description }}</p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Testimonials Section -->
+    <section class="py-16 px-4 sm:px-8">
+      <h2 class="text-2xl sm:text-3xl font-semibold text-center mb-8 text-[#C541B4]">What Our Players Say</h2>
+      <div class="space-y-8">
+        <div *ngFor="let testimonial of testimonials" class="bg-[#132030] p-6 rounded-lg shadow-md">
+          <p class="text-lg text-gray-300 italic">"{{ testimonial.feedback }}"</p>
+          <p class="text-sm text-right text-gray-500 mt-4">- {{ testimonial.customer }}</p>
+        </div>
+      </div>
+    </section>
+  
+  </div>
+  

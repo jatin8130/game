@@ -1,0 +1,67 @@
+<div class="bg-[#091626] text-white min-h-screen flex flex-col">
+  <div class="text-center bg-[#1c2a3a] py-10 sm:pt-28">
+    <h1 class="text-3xl sm:text-5xl font-bold mb-4">Contact Us</h1>
+    <p class="text-lg sm:text-xl text-gray-300">
+      Have a question or feedback? We’d love to hear from you!
+    </p>
+  </div>
+
+  <div class="container mx-auto px-4 sm:px-8 py-10 flex-grow">
+    <form (ngSubmit)="onSubmit()" [formGroup]="contactForm" class="bg-[#132030] p-6 rounded-lg shadow-md space-y-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label for="name" class="block text-sm mb-2">Name</label>
+          <input type="text" id="name" formControlName="name" 
+                 class="w-full bg-[#1e2e3e] text-white border border-gray-600 rounded p-2" placeholder="Enter your name">
+          <div *ngIf="contactForm.controls['name'].touched && contactForm.controls['name'].invalid" 
+               class="text-red-500 text-sm mt-1">
+            <div *ngIf="contactForm.controls['name'].hasError('required')">Name is required.</div>
+          </div>
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm mb-2">Email</label>
+          <input type="email" id="email" formControlName="email" 
+                 class="w-full bg-[#1e2e3e] text-white border border-gray-600 rounded p-2" placeholder="Enter your email">
+          <div *ngIf="contactForm.controls['email'].touched && contactForm.controls['email'].invalid" 
+               class="text-red-500 text-sm mt-1">
+            <div *ngIf="contactForm.controls['email'].hasError('required')">Email is required.</div>
+            <div *ngIf="contactForm.controls['email'].hasError('email')">Please enter a valid email address.</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label for="subject" class="block text-sm mb-2">Subject</label>
+        <input type="text" id="subject" formControlName="subject" 
+               class="w-full bg-[#1e2e3e] text-white border border-gray-600 rounded p-2" placeholder="Subject">
+        <div *ngIf="contactForm.controls['subject'].touched && contactForm.controls['subject'].invalid" 
+             class="text-red-500 text-sm mt-1">
+          <div *ngIf="contactForm.controls['subject'].hasError('required')">Subject is required.</div>
+        </div>
+      </div>
+
+      <div>
+        <label for="message" class="block text-sm mb-2">Message</label>
+        <textarea id="message" formControlName="message" rows="5" 
+                  class="w-full bg-[#1e2e3e] text-white border border-gray-600 rounded p-2" 
+                  placeholder="Write your message here"></textarea>
+        <div *ngIf="contactForm.controls['message'].touched && contactForm.controls['message'].invalid" 
+             class="text-red-500 text-sm mt-1">
+          <div *ngIf="contactForm.controls['message'].hasError('required')">Message is required.</div>
+        </div>
+      </div>
+
+      <div>
+        <button type="submit" [disabled]="contactForm.invalid"
+                class="bg-[#C541B4] hover:bg-[#A8329C] text-white px-4 py-2 rounded transition duration-300 cursor-pointer">
+          Send Message
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div *ngIf="successMessage" class="bg-green-500 text-white p-4 text-center rounded mt-4">
+    {{ successMessage }}
+  </div>
+</div>
