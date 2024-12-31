@@ -38,9 +38,7 @@ export class HomeComponent {
     this.apiService.fetchGames().subscribe({
       next: (data) => {
         this.games = data;
-        this.loading = false;
-        console.log(this.games);
-        
+        this.loading = false;        
       },
       error: (err) => {
         this.errorMessage = 'Failed to load games. Please try again later.';
